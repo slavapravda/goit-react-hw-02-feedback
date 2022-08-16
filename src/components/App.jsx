@@ -17,14 +17,14 @@ export class App extends Component {
     return good + neutral + bad;
   }
 
-  countPositiveFeedbackPercentage(propertyName) {
+  countPositiveFeedbackPercentage() {
     const total = this.countTotalFeedback();
     if (!total) {
       return 0;
     }
-    const value = this.state[propertyName];
+    const value = this.state.good;
     const result = (value / total) * 100;
-    return Number(result.toFixed(0));
+    return Math.round(result)
   }
 
   onLeaveFeedback = propertyName => {
@@ -40,7 +40,7 @@ export class App extends Component {
     const { good, neutral, bad } = this.state;
     const total = this.countTotalFeedback();
     const options = Object.keys(this.state);
-    const positivePercentage = this.countPositiveFeedbackPercentage('good');
+    const positivePercentage = this.countPositiveFeedbackPercentage();
 
     return (
       <div className="feedback">

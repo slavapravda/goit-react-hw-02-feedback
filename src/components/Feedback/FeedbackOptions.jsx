@@ -1,33 +1,20 @@
 import s from './feedback.module.css';
+import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => {
-  const [good, neutral, bad] = options;
-  return (
-    <div>
-      <button
-        className={s.fb__btn}
-        type="button"
-        onClick={() => onLeaveFeedback(good)}
-      >
-        Good
-      </button>
-      <button
-        className={s.fb__btn}
-        type="button"
-        onClick={() => onLeaveFeedback(neutral)}
-      >
-        Neutral
-      </button>
-      <button
-        className={s.fb__btn}
-        type="button"
-        onClick={() => onLeaveFeedback(bad)}
-      >
-        Bad
-      </button>
-    </div>
-  );
+  const btn = options.map(option => (
+    <button
+      key={nanoid()}
+      style={{textTransform: 'capitalize'}}
+      className={s.fb__btn}
+      type="button"
+      onClick={() => onLeaveFeedback(option)}
+    >
+      {option}
+    </button>
+  ));
+  return <div>{btn}</div>;
 };
 
 export default FeedbackOptions;
