@@ -1,0 +1,25 @@
+.block__btn {
+  display: flex;
+  justify-content: center;
+}
+.fb__btn {
+  display: inline-block;
+  padding: 10px 15px;
+
+  cursor: pointer;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid grey;
+  background-color: #fff;
+
+  box-shadow: 0px 1px 3px rgb(0 0 0 / 12%), 0px 1px 1px rgb(0 0 0 / 14%),
+    0px 2px 1px rgb(0 0 0 / 20%);
+}
+.fb__btn:not(:first-child) {
+  margin-left: 10px;
+}
+.fb__btn:hover {
+  transform: scale(1.1);
+  background-color: lightgray;
+  color: black;
+}

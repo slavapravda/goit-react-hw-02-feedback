@@ -1,12 +1,13 @@
-import s from './feedback.module.css';
+import s from './feedback-options.module.css';
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
 
 const FeedbackOptions = ({ options, onLeaveFeedback }) => {
+  console.log(options);
   const btn = options.map(option => (
     <button
       key={nanoid()}
-      style={{textTransform: 'capitalize'}}
+      style={{ textTransform: 'capitalize' }}
       className={s.fb__btn}
       type="button"
       onClick={() => onLeaveFeedback(option)}
@@ -14,10 +15,14 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
       {option}
     </button>
   ));
-  return <div>{btn}</div>;
+  return <div className={s.block__btn}>{btn}</div>;
 };
 
 export default FeedbackOptions;
+
+FeedbackOptions.defaultProps = {
+  options: [],
+};
 
 FeedbackOptions.propTypes = {
   options: PropTypes.arrayOf(PropTypes.string.isRequired),

@@ -1,0 +1,14 @@
+.good{
+    color: green;
+}
+.neutral{
+    color: blue;
+}
+.bad{
+    color: red;
+}
+
+.positive{
+    font-size: 20px;
+    color: green;
+}
